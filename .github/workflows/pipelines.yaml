@@ -19,6 +19,9 @@ jobs:
 
     steps:
 
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Setup Google Cloud CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
         env:
@@ -34,9 +37,9 @@ jobs:
         run: gcloud container clusters get-credentials "$SI_CLUSTER" --zone "$SI_ZONE"
 
       # Build the Docker image
-      - name: Build
+      - name: Build Docker Image GCR
         run: |-
-          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" --build-arg GITHUB_SHA="$GITHUB_SHA" --build-arg GITHUB_REF="$GITHUB_REF" .
+          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
 
       - name: Publish Docker Image to GCR
         run: |-
