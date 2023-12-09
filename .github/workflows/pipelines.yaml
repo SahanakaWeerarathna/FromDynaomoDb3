@@ -3,9 +3,8 @@ name: user-management-service ci cd flow
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - main
 
 env:
   PROJECT_ID: ${{ secrets.FROMDYNAOMODB_PROJECT }}
