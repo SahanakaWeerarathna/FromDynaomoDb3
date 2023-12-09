@@ -1,6 +1,3 @@
-#comment #
-name: user-management-service ci cd flow
-
 on:
   push:
     branches:
@@ -11,8 +8,8 @@ env:
   SI_CLUSTER: fromdynaomodb
   SI_ZONE: us-central1
   DEPLOYMENT_NAME: FROMDYNAOMODB_DEPLOYMENT
-  IMAGE: FROMDYNAOMODB_IMAGE
-  TAG: prod
+  IMAGE: fromdynaomodb_image
+  TAG: v1
 
 
 jobs:
