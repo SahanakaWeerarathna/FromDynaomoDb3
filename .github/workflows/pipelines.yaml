@@ -7,7 +7,7 @@ env:
   PROJECT_ID: ${{ secrets.FROMDYNAOMODB_PROJECT }}
   SI_CLUSTER: fromdynaomodb
   SI_ZONE: us-central1
-  DEPLOYMENT_NAME: FROMDYNAOMODB_DEPLOYMENT
+  DEPLOYMENT_NAME: fromdynaomodb
   IMAGE: fromdynaomodb_image
   TAG: v1
 
