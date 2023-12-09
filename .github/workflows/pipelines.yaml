@@ -33,8 +33,13 @@ jobs:
       - name: Get SI Credentials GKE
         run: gcloud container clusters get-credentials "$SI_CLUSTER" --zone "$SI_ZONE"
 
-      - name: Build Docker Image GCR
-        run: docker build --tag "your-image-name:tag" .
+      # Build the Docker image
+      - name: Build
+        run: |-
+          docker build \
+            --tag "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
+            --build-arg GITHUB_SHA="$GITHUB_SHA" \
+            --build-arg GITHUB_REF="$GITHUB_REF" \
 
       - name: Publish Docker Image to GCR
         run: |-
