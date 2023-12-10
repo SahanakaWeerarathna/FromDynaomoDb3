@@ -13,12 +13,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello, Flask!'
+    return 'Hello, API status health is working fine'
 
-@app.route('/matrix1')
+@app.route('/MATRIX_1')
 def matrix1():
-    return get_dynamodb_data(aws_access_key, aws_secret_key, aws_region, table_name)
+    return get_dynamodb_data(aws_access_key, aws_secret_key, aws_region, 'MATRIX_1')
 
+@app.route('/MATRIX_2')
+def matrix2():
+    return get_dynamodb_data(aws_access_key, aws_secret_key, aws_region, 'MATRIX_2')
+
+@app.route('/MATRIX_3')
+def matrix3():
+    return get_dynamodb_data(aws_access_key, aws_secret_key, aws_region, 'MATRIX_3')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000,debug=True)
