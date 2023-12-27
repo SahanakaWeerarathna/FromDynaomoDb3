@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fromdynaomodb
+  name: fromdynaomodb2
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: fromdynaomodb
+      app: fromdynaomodb2
   template:
     metadata:
       labels:
-        app: fromdynaomodb
+        app: fromdynaomodb2
     spec:
       containers:
         - name: app
-          image: gcr.io/fromdynaomodb/fromdynaomodb_image:v1
+          image: gcr.io/fromdynaomodb2/fromdynaomodb_image2:v1
           imagePullPolicy: Always
