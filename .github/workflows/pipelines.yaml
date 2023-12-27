@@ -1,4 +1,4 @@
-#CICD
+#CICD done
 on:
   push:
     branches:
