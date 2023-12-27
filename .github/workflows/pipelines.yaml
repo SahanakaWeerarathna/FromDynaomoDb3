@@ -40,11 +40,11 @@ jobs:
       # Build the Docker image
       - name: Build Docker Image GCR
         run: |-
-          docker build --tag gcr.io/fromdynaomodb2/fromdynaomodb_image2:v1 .
+          docker build --tag gcr.io/$PROJECT_ID/fromdynaomodb_image2:v1 .
 
       - name: Publish Docker Image to GCR
         run: |-
-          docker push gcr.io/fromdynaomodb2/fromdynaomodb_image2:v1
+          docker push gcr.io/$PROJECT_ID/fromdynaomodb_image2:v1
 
       - name: Install Gcloud Component
         run: |-
