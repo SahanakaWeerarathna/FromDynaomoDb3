@@ -6,10 +6,10 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.FROMDYNAOMODB_PROJECT }}
-  CLUSTER: fromdynaomodb
+  CLUSTER: mycluster
   ZONE: us-central1
-  DEPLOYMENT_NAME: fromdynaomodb
-  IMAGE: fromdynaomodb_image
+  DEPLOYMENT_NAME: fromdynaomodb2
+  IMAGE: fromdynaomodb2_image
   TAG: v1
 
 
@@ -40,11 +40,11 @@ jobs:
       # Build the Docker image
       - name: Build Docker Image GCR
         run: |-
-          docker build --tag gcr.io/fromdynaomodb/fromdynaomodb_image:v1 .
+          docker build --tag gcr.io/fromdynaomodb2/fromdynaomodb_image2:v1 .
 
       - name: Publish Docker Image to GCR
         run: |-
-          docker push gcr.io/fromdynaomodb/fromdynaomodb_image:v1
+          docker push gcr.io/fromdynaomodb2/fromdynaomodb_image2:v1
 
       - name: Install Gcloud Component
         run: |-
